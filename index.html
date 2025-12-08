@@ -1,0 +1,466 @@
+<!-- https://orderinfoodapp.netlify.app/ -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order.in- A Food Delivery Application</title>
+    <link rel="stylesheet" href="./node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link href="./node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="./Pages/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="icon" href="./src/image/Logo.png">
+</head>
+
+<body class="d-flex justify-content-center align-items-center flex-column">
+
+    <section
+        class="d-flex align-items-center justify-content-between border border-2 bg-warning-subtle rounded rounded-bottom-3 px-4 flex-wrap pb-1 d-none d-md-flex"
+        style="width: 90vw;">
+        <div class="d-flex  align-items-center justify-content-center">
+            <img src="./src/image/star.png" alt="" width="17px" class="mx-2">
+            <span class="font-top-div text-secondary">Get 5% Off on your first order,</span>
+            <span class="text-danger fw-bolder font-top-div mx-1"> PROMO: ORDER5</span>
+        </div>
+
+        <div>
+            <span>
+                <img src="./src/image/gps.png" alt="" width="25px">
+                <span class="font-top-div  text-secondary">Banjara Hills, </span>
+                <span id="locationPut" class="font-top-div  text-secondary">Hyderabad</span>
+                <span class="font-top-div text-secondary">Hyderabad</span>
+            </span>
+            <span onclick="change()" style="font-size: 15px;" class="text-decoration-underline text-danger mx-3"> Change
+                Location</span>
+        </div>
+
+    </section>
+
+    <header class="container d-flex align-items-center justify-content-between w-100 p-4 flex-wrap">
+        <div class="d-flex justify-content-center align-items-center">
+            <span>
+                <h3 class="fw-bolder">Order</h3>
+            </span>
+            <span class="text-light px-2 py-1 rounded rounded-2 fw-bold mx-1"
+                style="background-color:#ff6b00;">.in</span>
+        </div>
+
+        <nav class="list-unstyled navbar d-none d-md-flex">
+            <li class="nav-item mx-4">Home</li>
+            <li class="nav-item ">Browser Menu</li>
+            <li class="nav-item mx-4">Super Offer</li>
+            <li class="nav-item ">Restaurant</li>
+            <li class="nav-item mx-4">Track Order</li>
+        </nav>
+
+        <button class="btn bi-list d-flex d-md-none "  type="button" data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"></button>
+
+        <div class="offcanvas offcanvas-end w-50" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasRightLabel">O</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <ol class="d-flex flex-column row-gap-4 ">
+                    <li><a href="header"></a>Home</li>
+                    <li><a href="#Categories"></a>Browser Menu</li>
+                    <li><a href="#main"></a>Super Offer</li>
+                    <li><a href="#popular"></a>Restaurant</li>
+                    <li><a href="#"></a>Track Order</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="d-none d-md-flex">
+            <button
+                class="rounded rounded-pill px-3 py-2 border border-1 btn btn-outline-warning mx-3 position-relative ">
+                <img src="./src/image/shopping-cart (1).png" alt="" width="20px">
+                <span class="badge position-absolute bg-danger rounded rounded-circle" style="font-size: 10px;">2</span>
+                <span class="fw-bold" style="margin-left: 20px;">&#8377 1,249</span>
+            </button>
+            <button class="rounded rounded-pill px-3 py-2 border border-1 btn btn-outline-dark">
+                <i class="bi bi-person-fill" width="40px"></i>
+                <span onclick="login()">Login/SignUp</span>
+            </button>
+        </div>
+    </header>
+
+    <section id="main1"
+        class="d-flex justify-content-between align-items-center row-gap-4 my-2 w-100 rounded rounded-5 border border-1">
+        <div id="main1-div-1" class="p-3">
+            <p class="fw-bold" style="color: #ff6b00;">Order Restaurant food, takeaway and groceries.</p>
+            <h1 style="font-weight: 900; font-size: 55px;">Feast Your Senses,</h1>
+            <h1 style="color: #ff6b00; font-weight: 900; font-size: 55px;">Fast and Fresh</h1>
+            <br>
+            <p class="text-secondary">Enter a pincode to see what we deliver</p>
+
+            <div class="d-flex ">
+                <input type="text" class="p-3 shadow-lg border border-0 rounded rounded-start-pill px-4"
+                    placeholder="e.g 400005" id="main1-input">
+                <span class="p-3 rounded rounded-end-pill text-light fw-bold text-center" id="search"
+                    onclick="search()">Search</span>
+            </div>
+        </div>
+
+        <div id="main1-div2" class="position-relative">
+            <div id="main1-inner-1"
+                class=" p-3 bg-warning-subtle rounded rounded-4 position-absolute top-0 end-0 mt-5 me-5 main2-order-card">
+                <div style="color: #bbb;">1</div>
+                <div class="main1-font">Order Received now</div>
+                <div class="main1-font">Restaurant Accepted!</div>
+                <div class="main1-font">Your meal is being prepared with care.</div>
+            </div>
+            <div id="main1-inner-2"
+                class="d-flex p-3 bg-warning-subtle rounded rounded-4 position-absolute bottom-0 start-0 mb-5 ms-5 main2-order-card">
+                <div>
+                    <div style="color: #bbb;">2</div>
+                    <div class="main1-font">Delivery 5 min ago</div>
+                    <div class="main1-font">Rider Assigned</div>
+                    <div class="main1-font">Meet Alex!.Tracking link sent to your phone.</div>
+                </div>
+
+            </div>
+    </section>
+
+    <section id="main2" class="w-100 mt-4">
+        <div class="w-100 p-1 mt-2 d-flex align-items-center justify-content-between flex-wrap row-gap-3 fw-bold">
+            <div class="d-flex align-items-center justify-content-center column-gap-3">
+                <h2 class="fw-bold">Up to 40%</h2>
+                <img src="./src/image/confetti-ball.png" alt="">
+                <h2 class="fw-bold">Exclusive Deals</h2>
+            </div>
+            <div id="main2-button" class="d-flex align-items-center justify-content-center column-gap-3">
+
+                <button class="btn rounded rounded-pill  btn-border-color">Vegan</button>
+                <button class="btn rounded rounded-pill  btn-border-color ">Susi</button>
+                <button class="btn rounded rounded-pill btn-border-color ">Piza & Fast Food</button>
+                <button class="btn rounded rounded-pill btn-border-color ">Other</button>
+
+            </div>
+            <div>
+                <p id="main2-para">View All Details<i class="bi bi-arrow-right"></i></p>
+            </div>
+        </div>
+
+        <div class="d-flex align-items-center justify-content-around flex-wrap mt-5 row-gap-4">
+            <div class="card text-white" id="main2-card1">
+
+                <div class="card-body position-relative">
+                    <div class="p-2 text-white position-absolute offer-div rounded rounded-3 ps-3 pe-3">-40%</div>
+                    <p class="card-title position-absolute card-p-down">Pancakes</p>
+                    <h3 class="card-text position-absolute card-h3-down">Fuzi Wuzi Restaurant</h3>
+
+                </div>
+            </div>
+
+            <div class="card text-white" id="main2-card2">
+
+                <div class="card-body  position-relative">
+                    <div class="p-2 text-white position-absolute offer-div rounded rounded-3 ps-3 pe-3">-30%</div>
+                    <p class="card-title position-absolute card-p-down">Hamburger</p>
+                    <h3 class="card-text position-absolute card-h3-down">Alexa Divne Restaurant</h3>
+
+                </div>
+            </div>
+
+            <div class="card text-white" id="main2-card3">
+
+                <div class="card-body position-relative">
+                    <div class="p-2 text-white position-absolute offer-div rounded rounded-3 ps-3 pe-3">-50%</div>
+                    <p class="card-title position-absolute card-p-down">Japanese sushi</p>
+                    <h3 class="card-text position-absolute card-h3-down">Ching Chong Ji Restaurant</h3>
+
+                </div>
+            </div>
+        </div>
+        <hr style="border-width: 2px; color: black;">
+        <div id="Categories">
+            <h3 style="color: #1e1e3f;" class="fw-bolder mt-4">Order.in Popular Categories</h3>
+        </div>
+
+        <div class=" d-flex align-items-center justify-content-around flex-wrap mt-5 row-gap-5">
+            <div class="card d-flex align-items-center justify-content-center main2-order-card" style="width: 11rem;">
+                <center>
+                    <img src="./src/image/cheese-burger-7323674_640.jpg" alt="" class="rounded rounded-3 mt-3"
+                        width="130rem" height="121rem">
+                </center>
+                <div class="card-body d-flex align-items-center justify-content-center flex-column flex-wrap">
+                    <div class="fw-bold fs-6 text-center" style=" color: #1e1e3f;">Burger & Fast Food</div>
+                    <div class="card-text" style="font-size: 13px;color:#ff6b00">21 Restaurant</div>
+                </div>
+            </div>
+
+            <div class="card d-flex align-items-center justify-content-center main2-order-card" style="width: 11rem;">
+                <center>
+                    <img src="./src/image/salad-374173_640.jpg" alt="" class="rounded rounded-3 mt-3" width="140rem"
+                        height="140rem">
+                </center>
+                <div class="card-body d-flex align-items-center justify-content-center flex-column flex-wrap">
+                    <div class="fw-bold fs-6 text-center" style=" color: #1e1e3f;">Salads</div>
+                    <div class="card-text" style="font-size: 13px; color:#ff6b00">32 Restaurant</div>
+                </div>
+            </div>
+
+            <div class="card d-flex align-items-center justify-content-center main2-order-card" style="width: 11rem;">
+                <center>
+                    <img src="./src/image/pasta-9783723_640.jpg" alt="" class="rounded rounded-3 mt-3" width="140rem">
+                </center>
+                <div class="card-body d-flex align-items-center justify-content-center flex-column flex-wrap">
+                    <div class="fw-bold fs-6 text-center" style=" color: #1e1e3f;">Pasta & Casuals</div>
+                    <div class="card-text" style="font-size: 13px; color:#ff6b00">36 Restaurant</div>
+                </div>
+            </div>
+
+            <div class="card d-flex align-items-center justify-content-center main2-order-card" style="width: 11rem;">
+                <center>
+                    <img src="./src/image/pizza-3000273_640.jpg" alt="" class="rounded rounded-3 mt-3" width="140rem"
+                        height="140rem">
+                </center>
+                <div class="card-body d-flex align-items-center justify-content-center flex-column flex-wrap">
+                    <div class="fw-bold fs-6 text-center" style=" color: #1e1e3f;">Pizaa</div>
+                    <div class="card-text" style="font-size: 13px; color:#ff6b00">33 Restaurant</div>
+                </div>
+            </div>
+
+            <div class="card d-flex align-items-center justify-content-center main2-order-card" style="width: 11rem;">
+                <center>
+                    <img src="./src/image/tacos-4942004_640.jpg" alt="" class="rounded rounded-3 mt-3" width="140rem"
+                        height="140rem">
+                </center>
+                <div class="card-body d-flex align-items-center justify-content-center flex-column flex-wrap">
+                    <div class="fw-bold fs-6 text-center" style=" color: #1e1e3f;">Breakfast</div>
+                    <div class="card-text" style="font-size: 13px; color:#ff6b00">28 Restaurant</div>
+                </div>
+            </div>
+            <div class="card d-flex align-items-center justify-content-center main2-order-card" style="width: 11rem;">
+                <center>
+                    <img src="./src/image/soy-bean-paste-soup-749368_640.jpg" alt="" class="rounded rounded-3 mt-3"
+                        width="140rem" height="140rem">
+                </center>
+                <div class="card-body d-flex align-items-center justify-content-center flex-column flex-wrap">
+                    <div class="fw-bold fs-6 text-center" style=" color: #1e1e3f;">Soups</div>
+                    <div class="card-text" style="font-size: 13px; color:#ff6b00">30 Restaurant</div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <hr style="border-width: 2px; color: black;">
+
+    <div id="popular">
+        <h3 style="color: #1e1e3f;" class="fw-bolder mt-4">Popular Restaurant</h3>
+    </div>
+
+    <div class=" container-fluid d-flex align-items-center justify-content-around flex-wrap row-gap-5 mt-4">
+        <div class="card rounded rounded-top-3 rounded-bottom-3 border-0 main2-order-card" style="width: 12rem;" >
+            <div style="height: 150px; font-weight: 900;"
+                class="bg-warning d-flex align-items-center justify-content-center fs-4 text-danger rounded-top-3">
+                Burgers
+            </div>
+            <div class="card-header rounded-bottom-3" style="background-color: #1e1e3f;">
+                <h6 class="fw-bolder text-center text-light">McDonold's (Delhi)</h6>
+            </div>
+        </div>
+
+        <div class="card rounded rounded-top-3 rounded-bottom-3 border-0 main2-order-card" style="width: 12rem;">
+            <div style="height: 150px; font-weight: 900;"
+                class="bg-success d-flex align-items-center justify-content-center fs-4 text-light rounded-top-3">
+                Pizza
+            </div>
+            <div class="card-header rounded-bottom-3" style="background-color: #1e1e3f;">
+                <h6 class="fw-bolder text-center text-light">Domino's Pizza (MH)</h6>
+            </div>
+        </div>
+
+        <div class="card rounded rounded-top-3 rounded-bottom-3 border-0 main2-order-card" style="width: 12rem;">
+            <div style="height: 150px; font-weight: 900;"
+                class="bg-danger d-flex align-items-center justify-content-center fs-4 text-light rounded-top-3">
+                Fired Chicken
+            </div>
+            <div class="card-header rounded-bottom-3" style="background-color: #1e1e3f;">
+                <h6 class="fw-bolder text-center text-light">KFC (Kolkata)</h6>
+            </div>
+        </div>
+        <div class="card rounded rounded-top-3 rounded-bottom-3 border-0 main2-order-card" style="width: 12rem;">
+            <div style="height: 150px; font-weight: 900;"
+                class="bg-primary d-flex align-items-center justify-content-center fs-5 text-light rounded-top-3">
+                Starbucks Coffee
+            </div>
+            <div class="card-header rounded-bottom-3" style="background-color: #1e1e3f;">
+                <h6 class="fw-bolder text-center ms-3 text-light ">Starbucks Coffee</h6>
+            </div>
+        </div>
+
+        <div class="card rounded rounded-top-3 rounded-bottom-3 border-0 main2-order-card" style="width: 12rem;">
+            <div style="height: 150px ; font-weight: 900; background-color: orangered;"
+                class=" d-flex align-items-center justify-content-center fs-4 text-light rounded-top-3">
+                BK
+            </div>
+            <div class="card-header rounded-bottom-3" style="background-color: #1e1e3f;">
+                <h6 class="fw-bolder text-center text-light">Burger King (Pune)</h6>
+            </div>
+        </div>
+        <div class="card rounded rounded-top-3 rounded-bottom-3 border-0 main2-order-card" style="width: 12rem;">
+            <div style="height: 150px ; font-weight: 900; background-color: orange;"
+                class=" d-flex align-items-center justify-content-center fs-4 text-light rounded-top-3">
+                Sweets
+            </div>
+            <div class="card-header rounded-bottom-3" style="background-color: #1e1e3f;">
+                <h6 class="fw-bolder text-center text-light">Halidram's</h6>
+            </div>
+        </div>
+    </div>
+
+    <section
+        class="container-fluid d-flex align-items-center justify-content-between flex-wrap border border-1 p-5 mt-5 rounded rounded-4 w-100"
+        style="width: 90vw;" id="section3">
+
+        <div>
+            <img src="https://images.unsplash.com/photo-1556742044-3c52d6e88c62?w=800&h=600&fit=crop"
+                alt="Couple ordering food" id="section3-img" class="rounded rounded-4">
+        </div>
+
+        <div class="float-end">
+            <h1 class=" mt-3" id="section3-h1">Order<span style="color: #ff6b00;">ing</span> is more</h1>
+            <div class="p-3 rounded rounded-pill text-light text-center mt-3" style="background-color: #1e1e3f;">
+                <h2>Personalised & Instant</h2>
+            </div>
+            <p class="mt-3 float-end">Download the Order.in app for faster ordering</p>
+            <br>
+            <div class="mt-3 float-end">
+                <img src="./src/image/Apple Store.png" alt="" width="150px " height="53px" class=" rounded rounded-3">
+                <img src="./src/image/Google_Play_Store_badge_EN.svg.webp" alt="" width="153px" height="53px"
+                    class=" rounded rounded-3">
+            </div>
+        </div>
+    </section>
+
+    <section id="section-4"
+        class="d-flex align-items-center justify-content-between flex-wrap w-100 row-gap-4 rounded rounded-4 mt-5">
+
+        <div
+            class="d-flex align-items-center justify-content-between text-white position-relative rounded rounded-4 left">
+            <div class="ps-4">
+                <div>
+                    <div class="div1">Earn more with lower fees</div>
+                    <div class="mt-2 div2">Signup as a business</div>
+                    <div class="div3">Patner with us</div>
+                </div>
+                <div class="div4 div-getStarted">
+                    Get started
+                </div>
+            </div>
+            <div>
+                <img src="./src/image/Cheif.jpg" alt="" class="left-img">
+            </div>
+        </div>
+
+        <div
+            class="d-flex align-items-center justify-content-between text-white position-relative rounded rounded-4 right">
+            <div class="ps-4 ">
+                <div>
+                    <div class="div1">Available exclusive perks</div>
+                    <div class="mt-2 div2">Signup as a rider</div>
+                    <div class="div3">Ride with us</div>
+                </div>
+                <div class="div4 div-getStarted">
+                    Get started
+                </div>
+            </div>
+            <div>
+                <img src="./src/image/DeliveryMan.jpg" alt="" class="left-img">
+            </div>
+        </div>
+
+
+
+    </section>
+
+    <section class=" d-flex align-items-center justify-content-around mt-5 rounded-4 w-100 flex-wrap row-gap-5 "
+        id="section-5">
+
+        <div class="d-flex align-items-center justify-content-center flex-column secttion4-border"
+            style="padding-top: 10px;">
+            <h1 class="section5-h1 text-light">546+</h1>
+            <h6 class="fw-bolder text-light">Registered Riders</h6>
+        </div>
+
+        <div class="d-flex align-items-center justify-content-center flex-column secttion4-border">
+            <h1 class="section5-h1 text-light">789,000+</h1>
+            <h6 class="fw-bolder text-light">Orders Delivered</h6>
+        </div>
+
+        <div class="d-flex align-items-center justify-content-center flex-column secttion4-border">
+            <h1 class="section5-h1 text-light">690+</h1>
+            <h6 class="fw-bolder text-light">Restaurants Paterners</h6>
+        </div>
+
+        <div class="d-flex align-items-center justify-content-center flex-column">
+            <h1 class="section5-h1 text-light">17,457+</h1>
+            <h6 class="fw-bolder text-light">Food Items</h6>
+        </div>
+
+    </section>
+
+    <section id="section6" class="mt-5">
+        <div id="section6-first" class="flex-box">
+            <div class="d-flex align-items-center justify-content-center flex-wrap row-gap-2 flex-column">
+                <h3 class="fw-bold">Order<span style="color: #ff6b00;">.in</span></h3>
+                <div id="section6-div">
+                    <span><img src="./src/image/Apple Store.png" alt=""></span>
+                    <span><img src="./src/image/Google_Play_Store_badge_EN.svg.webp" alt=""></span>
+                </div>
+                <p>Company # 490039-445, Registered with House of companies.</p>
+            </div>
+        </div>
+
+        <div class="flex-box row-gap-2">
+            <h6 class="fw-bold"> Get Exclusive Deals in your Inbox</h6>
+            <div class="d-flex column-gap-1 ">
+                <div>
+                    <input type="text" placeholder="youremail@gmail.com" class="rounded rounded-pill ps-4 "
+                        id="section6-input">
+                </div>
+                <div><button class="btn text-white rounded rounded-pill p-2 fw-bold"
+                        id="section6-btn-color">Subscribe</button></div>
+            </div>
+            <div id="section6-small">we wont spam, read our <a href="#section1" style="color: #ff6b00;">email policy</a>
+            </div>
+        </div>
+        <div>
+
+            <div class="flex-box">
+                <h6 class="fw-bold "> Legal Pages</h6>
+                <ul id="section6-list" class="list-unstyled">
+                    <li>Terms and condition</li>
+                    <li>Privacy</li>
+                    <li>Cookies</li>
+                    <li>Mordern Slavery Statement</li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div>
+
+            <div class="flex-box">
+                <h6 class="fw-bold ">Important Links</h6>
+                <ul id="section6-list" class="list-unstyled">
+                    <li>Get helps</li>
+                    <li>Add your Restaurant</li>
+                    <li>Sign up to delivery</li>
+                    <li>Create a business account</li>
+                </ul>
+            </div>
+
+        </div>
+    </section>
+
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    <script src="./Pages/script.js"></script>
+</body>
+
+</html>
