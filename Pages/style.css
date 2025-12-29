@@ -76,7 +76,7 @@ body{
 }
 #main2-card1{
     width: 23rem;
-    background: url('./src/image/pancakes.jpg');
+    background: url('../src/image/pancakes.jpg');
     background-size: cover;
     height: 16rem;
     transition: transform 0.5s;
@@ -88,7 +88,7 @@ body{
 
 #main2-card2{
     width: 23rem;
-    background: url('./src/image/hamburger.jpg');
+    background: url('../src/image/hamburger.jpg');
     background-size: cover;
     height: 16rem;
      transition: transform 0.5s;
@@ -98,7 +98,7 @@ body{
 }
 #main2-card3{
     width: 23rem;
-    background: url('./src/image/japanese-sushi.jpg');
+    background: url('../src/image/japanese-sushi.jpg');
     background-size: cover;
     height: 16rem;
      transition: transform 0.5s;
